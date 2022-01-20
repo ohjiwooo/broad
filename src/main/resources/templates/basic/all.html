@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+        <li><a>게시물..</a></li> </ul>
+        th:onclick="|location.href='@{/basic/content/{id}(id=${post.id})}'|" type="button">게시글보기</button>
+</body>
+</html>
