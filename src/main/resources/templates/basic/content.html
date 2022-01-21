@@ -1,15 +1,42 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <link href="../css/bootstrap.min.css"
+          th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <style>
+          .container {
+              max-width: 560px;
+} </style>
 </head>
 <body>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>  <input type="text"  th:value="${post.title}" readonly></h2>
+    </div>
+    <div>
+        <p>작성자</p>
+        <input type="text" name="userid" class="form-control" th:value="${post.userid}" readonly>
+    </div>
+    <div>
+        <p>내용</p>
+        <input type="text"  name="content" class="form-control" th:value="${post.content}" readonly>
+    </div>
 
-<li><a>내용..</a></li> </ul>
-
-
-
+    <hr class="my-4">
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-primary btn-lg"
+                    onclick="location.href='editForm.html'"
+                    th:onclick="|location.href='@{/delete/{id}(id=${post.id})}'|" type="button">게시글삭제</button>
+        </div>
+        <div class="col">
+            <button class="w-100 btn btn-secondary btn-lg"
+                    onclick="location.href='items.html'"
+                    th:onclick="|location.href='@{/all}'|" type="button">목록으로</button>
+        </div>
+    </div>
+</div> <!-- /container -->
 </body>
 </html>
+

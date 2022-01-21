@@ -11,6 +11,5 @@ public interface PostRepo {
     public List<Post> findAll();
     public Post save(Post post);
     public boolean delete(Long id,String password);
-    public void clear();
 
 }

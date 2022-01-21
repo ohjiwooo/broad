@@ -50,7 +50,7 @@ class MemoryPostRepoTest {
         memoryPostRepo.save(post1);
         memoryPostRepo.save(post2);
         //when
-        memoryPostRepo.delete(post1.getId(), post1.getPassword());
+        memoryPostRepo.delete(post1.getId(),"123");
         List<Post> result = memoryPostRepo.findAll();
         //then
         Assertions.assertThat(result.size()).isEqualTo(1);

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Repository
+
 public class MemoryPostRepo implements PostRepo{
 
     private static Map<Long, Post> store = new HashMap<>();
@@ -36,15 +36,14 @@ public class MemoryPostRepo implements PostRepo{
     @Override
     public boolean delete(Long id, String password) {
         Post find = store.get(id);
-        String findPass= find.getPassword();
-        if(password == findPass){
+        String findPass = find.getPassword();
+        if(password.equals(findPass)){
             store.remove(id);
             return true;
         }
         return false;
     }
 
-    @Override
     public void clear() {
         store.clear();
     }
