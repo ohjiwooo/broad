@@ -1,6 +1,7 @@
 package project.broad.postserivce.repo;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import project.broad.postserivce.domain.Post;
 
@@ -12,7 +13,7 @@ import java.util.Optional;
 public class JpaPostRepo implements PostRepo{
 
     private final EntityManager em;
-    private static long sequence = 0L;
+
 
     public JpaPostRepo(EntityManager em) {
         this.em = em;
@@ -25,14 +26,14 @@ public class JpaPostRepo implements PostRepo{
     }
 
     @Override
+   // @Cacheable(value = "post")
     public List<Post> findAll() {
-        return em.createQuery("select p from Post p", Post.class)
+        return em.createQuery("select p from Post p order by userid desc", Post.class)
                 .getResultList();
     }
 
     @Override
     public Post save(Post post) {
-        post.setId(++sequence);
         em.persist(post);
         return post;
     }

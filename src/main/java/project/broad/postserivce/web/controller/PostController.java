@@ -2,7 +2,10 @@ package project.broad.postserivce.web.controller;
 
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -12,12 +15,15 @@ import project.broad.postserivce.repo.JpaPostRepo;
 import project.broad.postserivce.repo.MemoryPostRepo;
 import project.broad.postserivce.repo.PostRepo;
 
+import java.net.PortUnreachableException;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 @Transactional
 public class PostController {
+
+    private final RedisTemplate<String, String> redisTemplate;
 
     private final PostRepo postRepo;
 
@@ -62,4 +68,32 @@ public class PostController {
         return "redirect:/all";
     }
 
+    @PostMapping("/make")
+    public String make(){
+        for (int i=0; i<50000; i++) {
+            Post post= new Post();
+            post.setTitle("title"+i);
+            post.setContent("content"+i);
+            post.setUserid("id"+i);
+            post.setPassword("11");
+            postRepo.save(post);
+        }
+        return "basic/all";
+    }
+
+    @PostMapping("/redis")
+    public String redisTest() {
+        this.redisInput();
+        return "basic/all";
+    }
+
+    private void redisInput() {
+        final String key = "a";
+        final String data = "1";
+
+        final ValueOperations<String, String> valueOperations = redisTemplate.opsForValue();
+        valueOperations.set(key, data);
+
+        final String s = valueOperations.get(key);
+    }
 }
