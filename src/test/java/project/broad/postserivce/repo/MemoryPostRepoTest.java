@@ -3,11 +3,10 @@ package project.broad.postserivce.repo;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import project.broad.postserivce.domain.Post;
+import project.broad.postserivce.domain.post.MemoryPostRepo;
+import project.broad.postserivce.domain.post.Post;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MemoryPostRepoTest {
     MemoryPostRepo memoryPostRepo = new MemoryPostRepo();

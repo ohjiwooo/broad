@@ -1,7 +1,7 @@
-package project.broad.postserivce.repo;
+package project.broad.postserivce.domain.post;
 
 
-import project.broad.postserivce.domain.Post;
+import project.broad.postserivce.domain.post.Post;
 
 import java.util.List;
 

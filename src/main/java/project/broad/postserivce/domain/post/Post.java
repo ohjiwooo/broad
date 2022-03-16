@@ -1,4 +1,4 @@
-package project.broad.postserivce.domain;
+package project.broad.postserivce.domain.post;
 
 
 import lombok.Getter;

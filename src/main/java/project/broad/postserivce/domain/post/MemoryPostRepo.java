@@ -1,8 +1,4 @@
-package project.broad.postserivce.repo;
-
-import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
-import project.broad.postserivce.domain.Post;
+package project.broad.postserivce.domain.post;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class MemoryPostRepo implements PostRepo{
+public class MemoryPostRepo implements PostRepo {
 
     private static Map<Long, Post> store = new HashMap<>();
     private static long sequence = 0L;

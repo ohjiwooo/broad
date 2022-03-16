@@ -1,16 +1,12 @@
-package project.broad.postserivce.repo;
+package project.broad.postserivce.domain.post;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
-import project.broad.postserivce.domain.Post;
 
 import javax.persistence.EntityManager;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
-public class JpaPostRepo implements PostRepo{
+public class JpaPostRepo implements PostRepo {
 
     private final EntityManager em;
 

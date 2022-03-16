@@ -1,21 +1,16 @@
-package project.broad.postserivce.web.controller;
+package project.broad.postserivce.web.post;
 
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import project.broad.postserivce.domain.Post;
-import project.broad.postserivce.repo.JpaPostRepo;
-import project.broad.postserivce.repo.MemoryPostRepo;
-import project.broad.postserivce.repo.PostRepo;
+import project.broad.postserivce.domain.post.Post;
+import project.broad.postserivce.domain.post.PostRepo;
 
-import java.net.PortUnreachableException;
 import java.util.List;
 
 @Controller
